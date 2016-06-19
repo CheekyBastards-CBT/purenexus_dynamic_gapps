@@ -1,20 +1,12 @@
-#BaNkS Dynamic GApps#
-#by BaNkS#
-
-**ABOUT:**
-
-* Dynamic and minimal GApps for arm, arm64, and x86
-* Includes core Google syncing apks
-* Includes Google App, GoogleTTS, Facelock (arm and arm64 only), and Swypelibs for AOSP Keyboard (arm and arm64 only)
-* Nothing more and nothing less
+#PureNexus Dynamic Gapps#
+#Based off Banks Gapps#
 
 **HOW TO USE:**
 
 * Get into the base of this repo
 * . mkgapps.sh
-* Script will decompress all apks, zipalign all apks, zip, and sign the completed GApp packages
-* Completed GApp zips will be in the out directory
-* Both zips are the same as one zip needs to have a static name for Dirty Unicorns ROM OTA purposes
+* Script will decompress all apks, zipalign all apks, zip, and sign the completed GApp package
+* Completed GApp zip will be in the out directory
 
 **PREREQUISITES:**
 
@@ -25,6 +17,7 @@
 
 **CREDITS:**
 
+* Banks
 * Google
 * CyanogenMod
 * TKruzze

@@ -13,27 +13,13 @@
 # GNU General Public License for more details.
 
 # Pretty ascii art
-echo "._______.._______..__...._..___..._.._______................"
-echo "|.._....||..._...||..|..|.||...|.|.||.......|..............."
-echo "|.|_|...||..|_|..||...|_|.||...|_|.||.._____|..............."
-echo "|.......||.......||.......||......_||.|_____................"
-echo "|.._...|.|.......||.._....||.....|_.|_____..|..............."
-echo "|.|_|...||..._...||.|.|...||...._..|._____|.|..............."
-echo "|_______||__|.|__||_|..|__||___|.|_||_______|..............."
-echo ".______...__...__..__...._.._______..__...__..___..._______."
-echo "|......|.|..|.|..||..|..|.||..._...||..|_|..||...|.|.......|"
-echo "|.._....||..|_|..||...|_|.||..|_|..||.......||...|.|.......|"
-echo "|.|.|...||.......||.......||.......||.......||...|.|.......|"
-echo "|.|_|...||_....._||.._....||.......||.......||...|.|......_|"
-echo "|.......|..|...|..|.|.|...||..._...||.||_||.||...|.|.....|_."
-echo "|______|...|___|..|_|..|__||__|.|__||_|...|_||___|.|_______|"
-echo "._______.._______.._______.._______.._______................"
-echo "|.......||..._...||.......||.......||.......|..............."
-echo "|....___||..|_|..||...._..||...._..||.._____|..............."
-echo "|...|.__.|.......||...|_|.||...|_|.||.|_____................"
-echo "|...||..||.......||....___||....___||_____..|..............."
-echo "|...|_|.||..._...||...|....|...|....._____|.|..............."
-echo "|_______||__|.|__||___|....|___|....|_______|..............."
+echo ".+-+.+-+.+-+.+-+.+-+.+-+.+-+.+-+.+-+";
+echo ".|P|.|u|.|r|.|e|.|N|.|e|.|x|.|u|.|s|";
+echo ".+-+.+-+.+-+.+-+.+-+.+-+.+-+.+-+.+-+";
+echo ".|D|.|y|.|n|.|a|.|m|.|i|.|c|........";
+echo ".+-+.+-+.+-+.+-+.+-+.+-+.+-+........";
+echo ".|G|.|A|.|p|.|p|.|s|................";
+echo ".+-+.+-+.+-+.+-+.+-+................";
 
 # Define paths && variables
 APPDIRS="facelock/arm/app/FaceLock
@@ -65,13 +51,10 @@ GAPPSDIR="$TARGETDIR"/files
 TOOLSDIR="$TARGETDIR"/tools
 STAGINGDIR="$TARGETDIR"/staging
 FINALDIR="$TARGETDIR"/out
-ZIPNAME1TITLE=BaNkS_Dynamic_GApps
-ZIPNAME1VERSION=6.x.x
-ZIPNAME1DATE=$(date +%-m-%-e-%-y)_$(date +%H:%M)
-ZIPNAME2TITLE=BANKS_GAPPS
-ZIPNAME2VERSION=6.XX
-ZIPNAME1="$ZIPNAME1TITLE"_"$ZIPNAME1VERSION"_"$ZIPNAME1DATE".zip
-ZIPNAME2="$ZIPNAME2TITLE"_"$ZIPNAME2VERSION".zip
+ZIPNAMETITLE=PureNexus_Dynamic_GApps
+ZIPNAMEVERSION=6.x.x
+ZIPNAMEDATE=$(date +%-m-%-e-%-y)
+ZIPNAME="$ZIPNAMETITLE"_"$ZIPNAMEVERSION"_"$ZIPNAMEDATE".zip
 JAVAHEAP=3072m
 SIGNAPK="$TOOLSDIR"/signapk.jar
 MINSIGNAPK="$TOOLSDIR"/minsignapk.jar
@@ -103,15 +86,14 @@ for dirs in $APPDIRS; do
   dcapk 1> /dev/null 2>&1;
 done
 
-7za a -tzip -x!placeholder -r "$STAGINGDIR"/"$ZIPNAME1" "$STAGINGDIR"/./* 1> /dev/null 2>&1
-java -Xmx"$JAVAHEAP" -jar "$SIGNAPK" -w "$TESTKEYPEM" "$TESTKEYPK8" "$STAGINGDIR"/"$ZIPNAME1" "$STAGINGDIR"/"$ZIPNAME1".signed
-rm -f "$STAGINGDIR"/"$ZIPNAME1"
-zipadjust "$STAGINGDIR"/"$ZIPNAME1".signed "$STAGINGDIR"/"$ZIPNAME1".fixed 1> /dev/null 2>&1
-rm -f "$STAGINGDIR"/"$ZIPNAME1".signed
-java -Xmx"$JAVAHEAP" -jar "$MINSIGNAPK" "$TESTKEYPEM" "$TESTKEYPK8" "$STAGINGDIR"/"$ZIPNAME1".fixed "$STAGINGDIR"/"$ZIPNAME1"
-rm -f "$STAGINGDIR"/"$ZIPNAME1".fixed
-mv -f "$STAGINGDIR"/"$ZIPNAME1" "$FINALDIR"
-cp -f "$FINALDIR"/"$ZIPNAME1" "$FINALDIR"/"$ZIPNAME2"
+7za a -tzip -x!placeholder -r "$STAGINGDIR"/"$ZIPNAME" "$STAGINGDIR"/./* 1> /dev/null 2>&1
+java -Xmx"$JAVAHEAP" -jar "$SIGNAPK" -w "$TESTKEYPEM" "$TESTKEYPK8" "$STAGINGDIR"/"$ZIPNAME" "$STAGINGDIR"/"$ZIPNAME".signed
+rm -f "$STAGINGDIR"/"$ZIPNAME"
+zipadjust "$STAGINGDIR"/"$ZIPNAME".signed "$STAGINGDIR"/"$ZIPNAME".fixed 1> /dev/null 2>&1
+rm -f "$STAGINGDIR"/"$ZIPNAME".signed
+java -Xmx"$JAVAHEAP" -jar "$MINSIGNAPK" "$TESTKEYPEM" "$TESTKEYPK8" "$STAGINGDIR"/"$ZIPNAME".fixed "$STAGINGDIR"/"$ZIPNAME"
+rm -f "$STAGINGDIR"/"$ZIPNAME".fixed
+mv -f "$STAGINGDIR"/"$ZIPNAME" "$FINALDIR"
 find "$STAGINGDIR"/* ! -name "placeholder" -exec rm -rf {} +
 
 # Define ending time
@@ -121,5 +103,5 @@ END=$(date +%s)
 echo " "
 echo "All done creating GApps!"
 echo "Total time elapsed: $(echo $(($END-$BEGIN)) | awk '{print int($1/60)"mins "int($1%60)"secs "}') ($(echo "$END - $BEGIN" | bc) seconds)"
-echo "Completed GApp zips are located in the "$FINALDIR" directory"
+echo "Completed GApps zip located in the "$FINALDIR" directory"
 cd

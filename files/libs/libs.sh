@@ -24,14 +24,8 @@ arch=$(file_getprop $rom_build_prop "ro.product.cpu.abi=")
 # Libs
 if (echo "$arch" | grep -qi "armeabi"); then
   cp -rf $tmp_path/libs/lib/* /system/lib
-  mkdir -p /system/vendor/lib
-  cp -rf $tmp_path/libs/vendor/lib/* /system/vendor/lib
 elif (echo "$arch" | grep -qi "arm64"); then
   cp -rf $tmp_path/libs/lib64/* /system/lib64
-  mkdir -p /system/vendor/lib
-  mkdir -p /system/vendor/lib64
-  cp -rf $tmp_path/libs/vendor/lib/* /system/vendor/lib
-  cp -rf $tmp_path/libs/vendor/lib64/* /system/vendor/lib64
 fi
 
 # Make required symbolic links
