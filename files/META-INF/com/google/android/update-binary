@@ -102,6 +102,8 @@ else
   exit 1
 fi
 
+arch=$(file_getprop $rom_build_prop "ro.product.cpu.abi=")
+
 ui_print "Removing conflicting apks..."
 rm -rf "/system/app/BrowserProviderProxy" "/system/app/PartnerBookmarksProvider" "/system/app/Provision" "/system/app/QuickSearchBox" "/system/priv-app/BrowserProviderProxy" "/system/priv-app/PartnerBookmarksProvider" "/system/priv-app/Provision" "/system/priv-app/QuickSearchBox"
 
@@ -144,10 +146,16 @@ set_perm_recursive() {
 }
 
 ui_print "Setting permissions..."
-# Change pittpatt folders to root:shell per Google Factory Settings
+# Change pittpatt folders to root:shell per Google Factory Settings if not arm64
+if (echo "$arch" | grep -qi "armeabi"); then
 find "/system/vendor/pittpatt" -type d -exec chown 0.2000 '{}' \;
-set_perm_recursive 0 0 755 644 "/system/app" "/system/etc/permissions" "/system/etc/preferred-apps" "/system/etc/sysconfig" "system/etc/updatecmds" "/system/framework" "/system/lib" "/system/lib64" "/system/priv-app" "/system/usr/srec" "/system/vendor/pittpatt"
+fi
+set_perm_recursive 0 0 755 644 "/system/app" "/system/etc/permissions" "/system/etc/preferred-apps" "/system/etc/sysconfig" "system/etc/updatecmds" "/system/framework" "/system/lib" "/system/lib64" "/system/priv-app" "/system/usr/srec"
 set_perm_recursive 0 0 755 755 "/system/addon.d"
+# Set permissions on pittpatt if not arm64
+if (echo "$arch" | grep -qi "armeabi"); then
+set_perm_recursive 0 0 755 644 "/system/vendor/pittpatt"
+fi
 
 ui_print "Unmounting /system..."
 umount /system
