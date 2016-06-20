@@ -33,6 +33,7 @@ APPDIRS="facelock/arm/app/FaceLock
          system/app/ChromeBookmarksSyncAdapter
          system/app/GoogleContactsSyncAdapter
          system/app/GoogleTTS
+         system/app/PrebuiltDeskClockGoogle
          system/app/talkback
          system/priv-app/GoogleBackupTransport
          system/priv-app/GoogleFeedback

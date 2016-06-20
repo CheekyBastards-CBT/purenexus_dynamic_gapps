@@ -33,6 +33,7 @@ cat <<EOF
   app/FaceLock/FaceLock.apk
   app/GoogleContactsSyncAdapter/GoogleContactsSyncAdapter.apk
   app/GoogleTTS/GoogleTTS.apk
+  app/PrebuiltDeskClockGoogle/PrebuiltDeskClockGoogle.apk
   app/talkback/talkback.apk
   etc/permissions/com.google.android.camera.experimental2015.xml
   etc/permissions/com.google.android.camera2.xml
