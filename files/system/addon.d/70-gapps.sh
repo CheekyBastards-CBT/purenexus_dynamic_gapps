@@ -26,8 +26,6 @@ rom_build_prop=/system/build.prop
 
 arch=$(file_getprop $rom_build_prop "ro.product.cpu.abi=")
 
-prod_dev=$(file_getprop $rom_build_prop "ro.product.device")
-
 list_files() {
 cat <<EOF
   app/ChromeBookmarksSyncAdapter/ChromeBookmarksSyncAdapter.apk
@@ -40,7 +38,6 @@ cat <<EOF
   etc/permissions/com.google.android.dialer.support.xml
   etc/permissions/com.google.android.maps.xml
   etc/permissions/com.google.android.media.effects.xml
-  etc/permissions/com.google.android.pano.v1.xml
   etc/permissions/com.google.widevine.software.drm.xml
   etc/preferred-apps/google.xml
   etc/sysconfig/google.xml
@@ -52,7 +49,6 @@ cat <<EOF
   framework/com.google.android.dialer.support.jar
   framework/com.google.android.maps.jar
   framework/com.google.android.media.effects.jar
-  framework/com.google.android.pano.v1.jar
   framework/com.google.widevine.software.drm.jar
   lib/libfacelock_jni.so
   lib/libfilterpack_facedetect.so
@@ -171,11 +167,6 @@ case "$1" in
     rm -rf /system/priv-app/PartnerBookmarksProvider
     rm -rf /system/priv-app/Provision
     rm -rf /system/priv-app/QuickSearchBox
-
-    # Fugu doesn't want SetupWizard
-    if (echo "$prod_dev" | grep -qi "fugu"); then
-      rm -rf /system/priv-app/SetupWizard
-    fi
 
     # Make required symbolic links
     if (echo "$arch" | grep -qi "armeabi"); then

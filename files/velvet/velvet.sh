@@ -21,25 +21,11 @@ rom_build_prop=/system/build.prop
 
 arch=$(file_getprop $rom_build_prop "ro.product.cpu.abi=")
 
-build_char=$(file_getprop $rom_build_prop "ro.build.characteristics")
-
 # Velvet
 if (echo "$arch" | grep -qi "armeabi"); then
   cp -rf $tmp_path/velvet/arm/* /system
 elif (echo "$arch" | grep -qi "arm64"); then
   cp -rf $tmp_path/velvet/arm64/* /system
-elif (echo "$arch" | grep -qi "x86"); then
-  cp -rf $tmp_path/velvet/x86/* /system
-fi
-
-# Velvet for Android tv
-if (echo "$build_char" | grep -qi "tv"); then
-  rm -rf /system/priv-app/Velvet
-  if (echo "$arch" | grep -qi "arm"); then
-    cp -rf $tmp_path/velvet/tv-arm/* /system
-  elif (echo "$arch" | grep -qi "x86"); then
-    cp -rf $tmp_path/velvet/tv-x86/* /system
-  fi
 fi
 
 # Cleanup

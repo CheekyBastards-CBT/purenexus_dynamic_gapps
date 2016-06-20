@@ -21,18 +21,11 @@ rom_build_prop=/system/build.prop
 
 build_char=$(file_getprop $rom_build_prop "ro.build.characteristics")
 
-prod_dev=$(file_getprop $rom_build_prop "ro.product.device")
-
 # SetupWizard
 if (echo "$build_char" | grep -qi "tablet"); then
   cp -rf $tmp_path/setupwizard/tablet/* /system
 else
   cp -rf $tmp_path/setupwizard/phone/* /system
-fi
-
-# Fugu doesn't want SetupWizard
-if (echo "$prod_dev" | grep -qi "fugu"); then
-  rm -rf /system/priv-app/SetupWizard
 fi
 
 # Cleanup
