@@ -35,6 +35,7 @@ cat <<EOF
   app/GoogleContactsSyncAdapter/GoogleContactsSyncAdapter.apk
   app/GoogleTTS/GoogleTTS.apk
   app/Hangouts/Hangouts.apk
+  app/Photos/Photos.apk
   app/PrebuiltBugle/PrebuiltBugle.apk
   app/PrebuiltDeskClockGoogle/PrebuiltDeskClockGoogle.apk
   app/talkback/talkback.apk

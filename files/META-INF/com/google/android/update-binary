@@ -127,6 +127,9 @@ set_perm 0 0 0777 /tmp/hangouts/hangouts.sh
 unzip -o "$zipfile" "libs/*" -d /tmp
 set_perm 0 0 0777 /tmp/libs/libs.sh
 /tmp/libs/libs.sh
+unzip -o "$zipfile" "photos/*" -d /tmp
+set_perm 0 0 0777 /tmp/photos/photos.sh
+/tmp/photos/photos.sh
 unzip -o "$zipfile" "prebuiltbugle/*" -d /tmp
 set_perm 0 0 0777 /tmp/prebuiltbugle/prebuiltbugle.sh
 /tmp/prebuiltbugle/prebuiltbugle.sh
