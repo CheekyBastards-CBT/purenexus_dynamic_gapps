@@ -35,6 +35,7 @@ cat <<EOF
   app/GoogleContactsSyncAdapter/GoogleContactsSyncAdapter.apk
   app/GoogleTTS/GoogleTTS.apk
   app/Hangouts/Hangouts.apk
+  app/PrebuiltBugle/PrebuiltBugle.apk
   app/PrebuiltDeskClockGoogle/PrebuiltDeskClockGoogle.apk
   app/talkback/talkback.apk
   etc/permissions/com.google.android.camera.experimental2015.xml

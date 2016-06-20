@@ -25,6 +25,8 @@ echo ".+-+.+-+.+-+.+-+.+-+................";
 APPDIRS="facelock/arm/app/FaceLock
          hangouts/arm/app/Hangouts
          hangouts/arm64/app/Hangouts
+         prebuiltbugle/arm/app/PrebuiltBugle
+         prebuiltbugle/arm64/app/PrebuiltBugle
          prebuiltgmscore/arm/priv-app/PrebuiltGmsCore
          prebuiltgmscore/arm64/priv-app/PrebuiltGmsCore
          setupwizard/phone/priv-app/SetupWizard
