@@ -30,6 +30,7 @@ APPDIRS="facelock/arm/app/FaceLock
          velvet/arm/priv-app/Velvet
          velvet/arm64/priv-app/Velvet
          system/app/CalendarGooglePrebuilt
+         system/app/Chrome
          system/app/ChromeBookmarksSyncAdapter
          system/app/GoogleContactsSyncAdapter
          system/app/GoogleTTS
