@@ -32,6 +32,7 @@ cat <<EOF
   app/Chrome/Chrome.apk
   app/ChromeBookmarksSyncAdapter/ChromeBookmarksSyncAdapter.apk
   app/FaceLock/FaceLock.apk
+  app/GoogleCamera/GoogleCamera.apk
   app/GoogleContactsSyncAdapter/GoogleContactsSyncAdapter.apk
   app/GoogleTTS/GoogleTTS.apk
   app/Hangouts/Hangouts.apk

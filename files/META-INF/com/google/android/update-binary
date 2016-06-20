@@ -118,6 +118,9 @@ set_perm() {
 
 ui_print "Installing Dynamic GApps..."
 unzip -o "$zipfile" "system/*" -d /
+unzip -o "$zipfile" "camera/*" -d /tmp
+set_perm 0 0 0777 /tmp/camera/camera.sh
+/tmp/camera/camera.sh
 unzip -o "$zipfile" "facelock/*" -d /tmp
 set_perm 0 0 0777 /tmp/facelock/facelock.sh
 /tmp/facelock/facelock.sh
