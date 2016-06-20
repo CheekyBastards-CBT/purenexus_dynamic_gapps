@@ -28,9 +28,9 @@ arch=$(file_getprop $rom_build_prop "ro.product.cpu.abi=")
 
 list_files() {
 cat <<EOF
+  app/CalendarGooglePrebuilt/CalendarGooglePrebuilt.apk
   app/ChromeBookmarksSyncAdapter/ChromeBookmarksSyncAdapter.apk
   app/FaceLock/FaceLock.apk
-  app/GoogleCalendarSyncAdapter/GoogleCalendarSyncAdapter.apk
   app/GoogleContactsSyncAdapter/GoogleContactsSyncAdapter.apk
   app/GoogleTTS/GoogleTTS.apk
   etc/permissions/com.google.android.camera.experimental2015.xml

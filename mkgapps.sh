@@ -29,8 +29,8 @@ APPDIRS="facelock/arm/app/FaceLock
          setupwizard/tablet/priv-app/SetupWizard
          velvet/arm/priv-app/Velvet
          velvet/arm64/priv-app/Velvet
+         system/app/CalendarGooglePrebuilt
          system/app/ChromeBookmarksSyncAdapter
-         system/app/GoogleCalendarSyncAdapter
          system/app/GoogleContactsSyncAdapter
          system/app/GoogleTTS
          system/priv-app/GoogleBackupTransport
